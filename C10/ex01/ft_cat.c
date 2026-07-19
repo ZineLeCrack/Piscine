@@ -6,7 +6,7 @@
 /*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 17:30:45 by romain            #+#    #+#             */
-/*   Updated: 2026/07/18 18:17:22 by romain           ###   ########.fr       */
+/*   Updated: 2026/07/19 12:48:10 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	ft_display_stdin(void)
 
 	while (42)
 	{
-		bytes_read = read(0, buf, BUFFER_SIZE);
+		bytes_read = read(STDIN_FILENO, buf, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
 			ft_puterr("stdin");
