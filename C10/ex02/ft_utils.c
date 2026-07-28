@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rlebaill <rlebaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 12:54:44 by romain            #+#    #+#             */
-/*   Updated: 2026/07/19 15:40:23 by romain           ###   ########.fr       */
+/*   Updated: 2026/07/28 09:44:14 by rlebaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_tail.h"
 
-void	ft_puterr(const char *filename)
+void	ft_puterr(char *program_name, const char *filename)
 {
-	ft_putstr_fd("tail: ", STDERR_FILENO);
+	ft_putstr_fd(basename(program_name), STDERR_FILENO);
+	ft_putstr_fd(": ", STDERR_FILENO);
 	ft_putstr_fd(filename, STDERR_FILENO);
 	ft_putstr_fd(": ", STDERR_FILENO);
 	ft_putstr_fd(strerror(errno), STDERR_FILENO);

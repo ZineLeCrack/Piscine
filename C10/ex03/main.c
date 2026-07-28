@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rlebaill <rlebaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 17:37:21 by romain            #+#    #+#             */
-/*   Updated: 2026/07/20 17:40:24 by romain           ###   ########.fr       */
+/*   Updated: 2026/07/28 10:06:32 by rlebaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	if (!args)
-		return (ft_handle_stdin(canonical));
+		return (ft_handle_stdin(argv[0], canonical));
 	return (ft_handle_arguments(argc, argv, args, canonical));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tail.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rlebaill <rlebaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 12:03:57 by romain            #+#    #+#             */
-/*   Updated: 2026/07/19 16:53:21 by romain           ###   ########.fr       */
+/*   Updated: 2026/07/28 09:52:06 by rlebaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int		ft_strlen(const char *str);
 void	ft_putstr_fd(const char *str, const int fd);
 void	ft_putstr3_fd(const char *s1, const char *s2,
 			const char *s3, const int fd);
-size_t	ft_strtoul(const char *str, int *status);
-void	ft_puterr(const char *filename);
+size_t	ft_strtoul(char *program_name, const char *str, int *status);
+void	ft_puterr(char *program_name, const char *filename);
 void	ft_strcat_in(char **str_ptr, char buf[BUFFER_SIZE]);
 void	ft_putlast(const char *str, ssize_t bytes);
 

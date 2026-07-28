@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hexdump.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rlebaill <rlebaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 17:37:31 by romain            #+#    #+#             */
-/*   Updated: 2026/07/20 17:43:46 by romain           ###   ########.fr       */
+/*   Updated: 2026/07/28 10:07:11 by rlebaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <errno.h>
+# include <libgen.h>
 
 # define HEXA			"0123456789abcdef"
 # define BUFFER_SIZE	16
@@ -31,9 +32,10 @@ void	ft_print_on_hexa(char *str, unsigned int size, int canonical);
 void	ft_print_content(char *str, unsigned int size);
 int		ft_last_bytes(char buf[BUFFER_SIZE], size_t bytes_read,
 			size_t total_bytes_read, int canonical);
-int		ft_read_file(int fd, const char *filename, int canonical);
-int		ft_handle_stdin(int canonical);
-int		ft_open_file(const char *filename, int canonical);
+int		ft_read_file(char *program_name, int fd, const char *filename,
+			int canonical);
+int		ft_handle_stdin(char *program_name, int canonical);
+int		ft_open_file(char *program_name, const char *filename, int canonical);
 int		ft_handle_arguments(int argc, char **argv, int args, int canonical);
 
 #endif

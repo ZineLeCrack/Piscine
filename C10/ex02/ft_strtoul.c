@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtoul.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rlebaill <rlebaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 14:32:32 by romain            #+#    #+#             */
-/*   Updated: 2026/07/19 16:51:54 by romain           ###   ########.fr       */
+/*   Updated: 2026/07/28 09:56:18 by rlebaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_tail.h"
 
-size_t	ft_strtoul(const char *str, int *status)
+size_t	ft_strtoul(char *program_name, const char *str, int *status)
 {
 	int		i;
 	size_t	n;
@@ -23,7 +23,8 @@ size_t	ft_strtoul(const char *str, int *status)
 	{
 		if (n > (ULONG_MAX - (str[i] - '0')) / 10)
 		{
-			ft_putstr3_fd("tail: invalid number of bytes: ‘", str,
+			ft_putstr_fd(basename(program_name), STDERR_FILENO);
+			ft_putstr3_fd(": invalid number of bytes: ‘", str,
 				"’: Value too large for defined data type\n", STDERR_FILENO);
 			*status = 1;
 			return (0);
@@ -32,10 +33,10 @@ size_t	ft_strtoul(const char *str, int *status)
 	}
 	if (str[i])
 	{
-		ft_putstr3_fd("tail: invalid number of bytes: ‘",
-			str, "’\n", STDERR_FILENO);
 		*status = 1;
-		return (0);
+		ft_putstr3_fd(basename(program_name), ": invalid number of bytes: ‘",
+			str, STDERR_FILENO);
+		return (ft_putstr_fd("’\n", STDERR_FILENO), 0);
 	}
 	return (n);
 }
