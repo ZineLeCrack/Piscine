@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rlebaill <rlebaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 09:54:39 by romain            #+#    #+#             */
-/*   Updated: 2026/07/17 10:31:19 by romain           ###   ########.fr       */
+/*   Updated: 2026/07/28 09:06:21 by rlebaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	if (size < 0)
 		return (NULL);
 	str = ft_create_str(size, strs, sep);
+	if (!str)
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (i < size)
