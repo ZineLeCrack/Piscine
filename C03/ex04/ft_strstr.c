@@ -6,7 +6,7 @@
 /*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 13:59:24 by romain            #+#    #+#             */
-/*   Updated: 2026/07/16 14:02:30 by romain           ###   ########.fr       */
+/*   Updated: 2026/07/29 18:11:56 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_strstr(char *str, char *to_find)
 	int	j;
 
 	i = 0;
+	if (!to_find[0])
+		return (str);
 	while (str[i])
 	{
 		j = 0;
@@ -25,5 +27,5 @@ char	*ft_strstr(char *str, char *to_find)
 			return (&str[i]);
 		i++;
 	}
-	return (0);
+	return ((void *)0);
 }
