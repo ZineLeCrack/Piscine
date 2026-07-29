@@ -3,15 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_point.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rlebaill <rlebaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 15:13:43 by romain            #+#    #+#             */
-/*   Updated: 2026/07/17 15:14:45 by romain           ###   ########.fr       */
+/*   Updated: 2026/07/29 11:18:51 by rlebaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FT_POINT_H
+# define FT_POINT_H
 
 typedef struct s_point
 {
 	int	x;
 	int	y;
 }	t_point;
+
+#endif

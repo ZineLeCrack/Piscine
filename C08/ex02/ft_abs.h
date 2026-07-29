@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_abs.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rlebaill <rlebaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 15:03:10 by romain            #+#    #+#             */
-/*   Updated: 2026/07/17 15:13:13 by romain           ###   ########.fr       */
+/*   Updated: 2026/07/29 11:17:14 by rlebaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FT_ABS_H
+# define FT_ABS_H
 
 int	ft_abs(int value)
 {
@@ -17,4 +20,6 @@ int	ft_abs(int value)
 	return (-value);
 }
 
-#define ABS(Value) ft_abs(Value)
+# define ABS(Value) ft_abs(Value)
+
+#endif
