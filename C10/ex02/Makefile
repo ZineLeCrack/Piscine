@@ -1,22 +1,27 @@
 NAME = ft_tail
 
-CC = cc -Wall -Wextra -Werror -g3
-
-SRCS = ft_putstr_fd.c ft_strlen.c ft_strtoul.c ft_utils.c ft_tail.c
+CFILES = main.c \
+	ft_atoi.c \
+	ft_print_fd.c \
+	ft_print_file.c \
+	ft_print_str.c \
+	ft_read_count.c \
+	ft_strcmp.c
+SRCS = $(addprefix src/, $(CFILES))
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	cc -Wall -Wextra -Werror -Iinclude $(OBJS) -o $(NAME) -g3
 
 %.o: %.c
-	$(CC) -c $< -o $@
+	cc -Wall -Wextra -Werror -Iinclude -c $< -o $@ -g3
 
 clean:
-	@rm -f $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
-re: fclean all
+.PHONY: all clean fclean

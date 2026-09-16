@@ -1,22 +1,30 @@
 NAME = ft_hexdump
 
-CC = cc -Wall -Wextra -Werror -g3
-
-SRCS = ft_utils.c ft_hexa.c ft_hexdump.c main.c
+CFILES = main.c \
+	ft_dump_fd.c \
+	ft_dump_files.c \
+	ft_print_addr.c \
+	ft_print_hex.c \
+	ft_print_line.c \
+	ft_print_readable.c \
+	ft_print_str.c \
+	ft_read_line.c \
+	ft_strcmp.c
+SRCS = $(addprefix src/, $(CFILES))
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	cc -Wall -Wextra -Werror -Iinclude $(OBJS) -o $(NAME)
 
 %.o: %.c
-	$(CC) -c $< -o $@
+	cc -Wall -Wextra -Werror -Iinclude -c $< -o $@
 
 clean:
-	@rm -f $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
-re: fclean all
+.PHONY: all clean fclean

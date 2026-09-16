@@ -3,33 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tail.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlebaill <rlebaill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tbaricau <tbaricau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/19 12:03:57 by romain            #+#    #+#             */
-/*   Updated: 2026/07/28 09:52:06 by rlebaill         ###   ########.fr       */
+/*   Created: 2025/09/09 19:10:12 by tbaricau          #+#    #+#             */
+/*   Updated: 2025/09/10 12:00:35 by tbaricau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_TAIL_H
 # define FT_TAIL_H
 
-# include <unistd.h>
-# include <fcntl.h>
-# include <string.h>
 # include <errno.h>
+# include <fcntl.h>
 # include <libgen.h>
 # include <stdlib.h>
-# include <limits.h>
+# include <string.h>
+# include <unistd.h>
 
-# define BUFFER_SIZE 1024
-
-int		ft_strlen(const char *str);
-void	ft_putstr_fd(const char *str, const int fd);
-void	ft_putstr3_fd(const char *s1, const char *s2,
-			const char *s3, const int fd);
-size_t	ft_strtoul(char *program_name, const char *str, int *status);
-void	ft_puterr(char *program_name, const char *filename);
-void	ft_strcat_in(char **str_ptr, char buf[BUFFER_SIZE]);
-void	ft_putlast(const char *str, ssize_t bytes);
+int		ft_atoi(char *str);
+void	ft_print_fd(int fd, int bytes);
+int		ft_print_file(char *name, char *str, int bytes, int file_i);
+void	ft_print_str(int output, char *str);
+int		ft_read_count(int argc, char **argv);
+int		ft_strcmp(char *a, char *b);
 
 #endif

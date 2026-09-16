@@ -3,36 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlebaill <rlebaill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tbaricau <tbaricau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/20 17:37:21 by romain            #+#    #+#             */
-/*   Updated: 2026/07/28 10:06:32 by rlebaill         ###   ########.fr       */
+/*   Created: 2025/09/09 17:48:59 by tbaricau          #+#    #+#             */
+/*   Updated: 2025/09/10 18:13:54 by tbaricau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_hexdump.h"
+#include "ft_cat.h"
 
 int	main(int argc, char **argv)
 {
+	int	error;
 	int	i;
-	int	args;
-	int	canonical;
 
-	i = 1;
-	args = 0;
-	canonical = 0;
-	while (i < argc)
+	error = 0;
+	if (argc == 1 && ft_print_fd(0) && ++error)
+		ft_print_error(argv[0], "stdin");
+	else if (argc > 1)
 	{
-		if (argv[i][0] == '-')
-		{
-			if (argv[i][1] && argv[i][1] == 'C')
-				canonical = 1;
-		}
-		else
-			args++;
-		i++;
+		i = 0;
+		while (++i < argc)
+			if (ft_print_file(argv[i]) && ++error)
+				ft_print_error(argv[0], argv[i]);
 	}
-	if (!args)
-		return (ft_handle_stdin(argv[0], canonical));
-	return (ft_handle_arguments(argc, argv, args, canonical));
+	return (error > 0);
 }
